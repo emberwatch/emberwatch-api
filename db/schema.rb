@@ -11,6 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2) do
+
+  create_table "links", force: true do |t|
+    t.string   "tweet_id"
+    t.string   "url"
+    t.datetime "posted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "md5"
+  end
+
+  add_index "links", ["md5"], name: "index_links_on_md5"
+  add_index "links", ["posted_at"], name: "index_links_on_posted_at"
+  add_index "links", ["tweet_id"], name: "index_links_on_tweet_id"
+  add_index "links", ["url"], name: "index_links_on_url"
 
 end
