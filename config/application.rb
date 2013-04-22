@@ -31,5 +31,13 @@ module EmberWatch
 
     # Disable the asset pipeline.
     config.assets.enabled = false
+
+    # Setup CORS
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :options]
+      end
+    end
   end
 end
