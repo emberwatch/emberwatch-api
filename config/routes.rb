@@ -6,6 +6,10 @@ EmberWatch::Application.routes.draw do
   # root to: 'welcome#index'
   root to: 'root#index'
 
+  namespace :v1, defaults: { format: 'json' } do
+    resources :links
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
