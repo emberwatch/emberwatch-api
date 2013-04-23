@@ -16,7 +16,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'jbuilder', '~> 1.0.1'
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', github: 'rspec/rspec-rails'
   gem 'factory_girl_rails'
 end
 
