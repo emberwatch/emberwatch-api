@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-EmberWatch::Application.config.secret_key_base = 'b67ae9104169ddbe53a6137e2dc251084b2ae357e66cf919cd6884ae30c828d13a4edcdf2c7b8bd2aea69fc7fec88100e9e85bbeded7eaffd6e4d5751d3a801b'
+EmberWatch::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
