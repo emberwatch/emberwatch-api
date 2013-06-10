@@ -1,8 +1,9 @@
-require 'spec_helper'
+require 'test_helper'
 
 describe TaggedRelease do
-  it "has a valid Factory" do
-    FactoryGirl.build(:tagged_release).should be_valid
+
+  it "has a valid Fixture" do
+    FactoryGirl.build(:tagged_release).must_be :valid?
   end
 
   describe "scopes" do
@@ -14,15 +15,16 @@ describe TaggedRelease do
     describe ".recent" do
       it "returns the most recent record first" do
         records = TaggedRelease.recent
-        records.first.should_not be_active
+        records.first.wont_be :active?
       end
     end
 
     describe ".active" do
       it "returns active records only" do
         records = TaggedRelease.active
-        records.count.should == 1
+        records.count.must_equal 1
       end
     end
   end
+  
 end

@@ -15,13 +15,17 @@ gem 'octokit', require: false
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.0.1'
 
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
 group :development, :test do
-  gem 'rspec-rails', github: 'rspec/rspec-rails'
   gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'capybara'
+  gem 'minitest-spec-rails'
 end
 
 # To use ActiveModel has_secure_password
