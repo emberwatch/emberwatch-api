@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 20130603192721) do
 
   create_table "links", force: true do |t|
     t.string   "tweet_id"
@@ -22,9 +22,25 @@ ActiveRecord::Schema.define(version: 2) do
     t.string   "md5"
   end
 
-  add_index "links", ["md5"], name: "index_links_on_md5"
-  add_index "links", ["posted_at"], name: "index_links_on_posted_at"
-  add_index "links", ["tweet_id"], name: "index_links_on_tweet_id"
-  add_index "links", ["url"], name: "index_links_on_url"
+  add_index "links", ["md5"], name: "index_links_on_md5", using: :btree
+  add_index "links", ["posted_at"], name: "index_links_on_posted_at", using: :btree
+  add_index "links", ["tweet_id"], name: "index_links_on_tweet_id", using: :btree
+  add_index "links", ["url"], name: "index_links_on_url", using: :btree
+
+  create_table "tagged_releases", force: true do |t|
+    t.string   "title"
+    t.string   "project"
+    t.string   "tag"
+    t.string   "build"
+    t.string   "announcement"
+    t.datetime "tagged_at"
+    t.boolean  "active",       default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tagged_releases", ["project", "tag"], name: "index_tagged_releases_on_project_and_tag", unique: true, using: :btree
+  add_index "tagged_releases", ["tag"], name: "index_tagged_releases_on_tag", using: :btree
+  add_index "tagged_releases", ["tagged_at"], name: "index_tagged_releases_on_tagged_at", order: {"tagged_at"=>:desc}, using: :btree
 
 end

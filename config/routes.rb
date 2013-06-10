@@ -7,7 +7,8 @@ EmberWatch::Application.routes.draw do
   root to: 'root#index'
 
   namespace :v1, defaults: { format: 'json' } do
-    resources :links
+    resources :links, only: [:index, :show]
+    resources :tagged_releases, only: [:index, :show]
   end
 
   # Example of regular route:
