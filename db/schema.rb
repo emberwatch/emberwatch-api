@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702194353) do
+ActiveRecord::Schema.define(version: 20130702195525) do
 
   create_table "links", force: true do |t|
     t.string   "tweet_id"
@@ -75,5 +75,23 @@ ActiveRecord::Schema.define(version: 20130702194353) do
   add_index "tagged_releases", ["project", "tag"], name: "index_tagged_releases_on_project_and_tag", unique: true, using: :btree
   add_index "tagged_releases", ["tag"], name: "index_tagged_releases_on_tag", using: :btree
   add_index "tagged_releases", ["tagged_at"], name: "index_tagged_releases_on_tagged_at", order: {"tagged_at"=>:desc}, using: :btree
+
+  create_table "talks", force: true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.integer  "person_id"
+    t.datetime "delivered_at"
+    t.string   "video_url"
+    t.string   "details_url"
+    t.string   "slides_url"
+    t.integer  "meet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "talks", ["delivered_at"], name: "index_talks_on_delivered_at", order: {"delivered_at"=>:desc}, using: :btree
+  add_index "talks", ["meet_id"], name: "index_talks_on_meet_id", using: :btree
+  add_index "talks", ["person_id"], name: "index_talks_on_person_id", using: :btree
+  add_index "talks", ["title"], name: "index_talks_on_title", using: :btree
 
 end
