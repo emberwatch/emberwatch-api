@@ -1,6 +1,4 @@
 EmberWatch::Application.routes.draw do
-  resources :publishers
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -11,6 +9,9 @@ EmberWatch::Application.routes.draw do
   namespace :v1, defaults: { format: 'json' } do
     resources :links, only: [:index, :show]
     resources :tagged_releases, only: [:index, :show]
+    resources :publishers, only: [:index, :show]
+    resources :books, only: [:index, :show]
+    resources :people, only: [:index, :show]
   end
 
   # Example of regular route:
