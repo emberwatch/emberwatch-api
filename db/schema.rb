@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130603192721) do
+ActiveRecord::Schema.define(version: 20130702171827) do
 
   create_table "links", force: true do |t|
     t.string   "tweet_id"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20130603192721) do
   add_index "links", ["posted_at"], name: "index_links_on_posted_at", using: :btree
   add_index "links", ["tweet_id"], name: "index_links_on_tweet_id", using: :btree
   add_index "links", ["url"], name: "index_links_on_url", using: :btree
+
+  create_table "publishers", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "publishers", ["name"], name: "index_publishers_on_name", using: :btree
 
   create_table "tagged_releases", force: true do |t|
     t.string   "title"
