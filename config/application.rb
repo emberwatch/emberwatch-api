@@ -28,10 +28,10 @@ module EmberWatch
     # Configure generators
     config.generators do |g|
       g.fixture_replacement :factory_girl
+      g.helper false
+      g.assets false
       g.stylesheets false
       g.javascripts false
-      g.views false
-      g.helpers false
     end
 
     # Disable the asset pipeline.
