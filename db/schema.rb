@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702195525) do
+ActiveRecord::Schema.define(version: 20130702203248) do
+
+  create_table "books", force: true do |t|
+    t.string   "title"
+    t.integer  "person_id"
+    t.integer  "publisher_id"
+    t.integer  "price"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "books", ["person_id"], name: "index_books_on_person_id", using: :btree
+  add_index "books", ["publisher_id"], name: "index_books_on_publisher_id", using: :btree
+  add_index "books", ["title"], name: "index_books_on_title", using: :btree
 
   create_table "links", force: true do |t|
     t.string   "tweet_id"
