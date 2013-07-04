@@ -12,6 +12,8 @@ EmberWatch::Application.routes.draw do
     resources :publishers, only: [:index, :show]
     resources :books, only: [:index, :show]
     resources :people, only: [:index, :show]
+    resources :meets, only: [:index, :show]
+    resources :talks, only: [:index, :show]
   end
 
   # Example of regular route:
