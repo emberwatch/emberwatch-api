@@ -13,6 +13,7 @@ EmberWatch::Application.routes.draw do
     resources :books, only: [:index, :show]
     resources :people, only: [:index, :show]
     resources :meets, only: [:index, :show]
+    resources :screencasts, only: [:index, :show]
     resources :talks, only: [:index, :show]
   end
 
