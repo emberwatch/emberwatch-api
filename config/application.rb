@@ -32,6 +32,7 @@ module EmberWatch
       g.assets false
       g.stylesheets false
       g.javascripts false
+      g.template_engine false
     end
 
     # Disable the asset pipeline.
