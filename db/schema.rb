@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702203248) do
+ActiveRecord::Schema.define(version: 20130706190302) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -73,6 +73,23 @@ ActiveRecord::Schema.define(version: 20130702203248) do
   end
 
   add_index "publishers", ["name"], name: "index_publishers_on_name", using: :btree
+
+  create_table "screencasts", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "publisher_id"
+    t.string   "title"
+    t.string   "subtitle"
+    t.datetime "published_at"
+    t.string   "url"
+    t.string   "video_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "screencasts", ["person_id"], name: "index_screencasts_on_person_id", using: :btree
+  add_index "screencasts", ["published_at"], name: "index_screencasts_on_published_at", order: {"published_at"=>:desc}, using: :btree
+  add_index "screencasts", ["publisher_id"], name: "index_screencasts_on_publisher_id", using: :btree
+  add_index "screencasts", ["title"], name: "index_screencasts_on_title", using: :btree
 
   create_table "tagged_releases", force: true do |t|
     t.string   "title"
