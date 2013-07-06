@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130706195418) do
+ActiveRecord::Schema.define(version: 20130706201651) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 20130706195418) do
   add_index "people", ["github"], name: "index_people_on_github", using: :btree
   add_index "people", ["name"], name: "index_people_on_name", using: :btree
   add_index "people", ["twitter"], name: "index_people_on_twitter", using: :btree
+
+  create_table "people_podcasts", id: false, force: true do |t|
+    t.integer "person_id",  null: false
+    t.integer "podcast_id", null: false
+  end
+
+  add_index "people_podcasts", ["person_id"], name: "index_people_podcasts_on_person_id", using: :btree
+  add_index "people_podcasts", ["podcast_id"], name: "index_people_podcasts_on_podcast_id", using: :btree
 
   create_table "podcasts", force: true do |t|
     t.string   "title"
