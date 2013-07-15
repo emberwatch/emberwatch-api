@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - 2.0.0
+env: SECRET_KEY_BASE=0c316f7380f1d63ab0138afa943f3785c4e038eb11d096fed94ffc09f0536c5787155fc60663ee0c81c7433ab06dbb6fd51fc51fb76e1fd7c74a6c5159984abd
 before_script:
   - sudo /etc/init.d/postgresql stop
   - sudo cp /etc/postgresql/9.1/main/pg_hba.conf ./
