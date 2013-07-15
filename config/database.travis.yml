@@ -1,0 +1,6 @@
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: ember_watch_test
+  pool: 5
+  username: postgres

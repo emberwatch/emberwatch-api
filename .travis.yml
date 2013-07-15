@@ -14,8 +14,8 @@ before_script:
   - sudo /etc/init.d/postgresql stop
   - sudo cp ./pg_hba.conf /etc/postgresql/9.2/main
   - sudo /etc/init.d/postgresql start
-  - psql -c 'CREATE ROLE ember_watch LOGIN CREATEDB;' -U postgres
-  - psql -c 'CREATE DATABASE ember_watch_test;' -U ember_watch
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'CREATE DATABASE ember_watch_test;' -U postgres
 script:
  - bundle exec rake
 deploy:
