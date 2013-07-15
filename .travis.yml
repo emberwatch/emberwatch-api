@@ -13,7 +13,7 @@ before_script:
   - sudo apt-get update
   - sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" install postgresql-9.2 postgresql-contrib-9.2 -qq
   - sudo /etc/init.d/postgresql stop
-  - sudo cp ./pg_hba.conf /etc/postgresql/9.2/main
+  - sudo mv ./pg_hba.conf /etc/postgresql/9.2/main
   - sudo /etc/init.d/postgresql start
   - cp config/database.travis.yml config/database.yml
   - psql -c 'CREATE DATABASE ember_watch_test;' -U postgres
